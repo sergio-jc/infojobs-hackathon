@@ -8,12 +8,12 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata = {
-  title: 'Infojobs - Mejorador de Descripciones',
+  title: 'Infojobs Compere',
   icons: {
     icon: '/favicon.ico'
   },
   description:
-    'Una pequeña herramienta que te ayuda a mejorarp las descripciones de las ofertas en infojobs'
+    'Compara ofertas de trabajo utilizando IA'
 }
 
 export default function RootLayout ({
