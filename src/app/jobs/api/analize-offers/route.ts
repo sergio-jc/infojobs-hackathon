@@ -14,16 +14,15 @@ const openai = new OpenAIApi(configuration)
 const INITIAL_MESSAGES = [
   {
     role: ChatCompletionRequestMessageRoleEnum.System,
-    content: `Quiero que cuando te pase un grupo de descripciones, en el formato de {description, id} me des una respuesta, Se conciso, estricto y directo. Analiza las decripciones
-     y evalua la mejor oferta de acuerdo a la especificidad de sus descripción, comparando si dan beneficiós , oportunidades de creciemiento laboral ,todo lo que concideres que ayude
-      a evaluar un grupo de ofertas de trabajo, elige solo uno y elige el mejor explica el porque de la eleción, y dale la respuesta en este formato,
-       {score, id: /* id de la oferta que elegiste*/, description : /* las razones por las cuales diste el puntaje y por que es la mejor opción*/} Por ejemplo:
-    
+    content: `Provide a concise response based on a group of descriptions 
+    I will give you in the format {description, id}. Analyze the descriptions, evaluate the
+     best offer. Choose only one offer and explain why it is the best option. Respond in the format:
+       {score, id: /chosen offer's ID/, description: /why it's the best choice must have a maximum of 100 characters/}.
+       and answer in spanish For example:
     {
       "score": 8,
       "id": "/*aqui debe de ir el id de la oferta que elegiste*/",
-      "description": "Esta oferta ofrese una mayor descripción y claridad sobre los beneficios de tabajar con ellos y los retos profesionales que ofrece sobre las demas ofertas, los
-      puntos más fuertes de esta oferta son /*sigues con la descripción con un mensaje no mayor a los 300 caracteres*/
+      "description": "{company} ofrece la mejor opción, porque..."
       "
     }`
   }
