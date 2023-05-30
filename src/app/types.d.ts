@@ -4,5 +4,12 @@ export interface Offer {
   province: string
   experienceMin: string
   link: string
-  teleworking: string
+  logo: string
+  author: string
+  teleworking?: string
+  published?: string | Date
+  contractType?: string
+  workDay?: string
+  description?: string
+  salary?: string
 }

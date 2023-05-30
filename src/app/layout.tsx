@@ -1,13 +1,19 @@
+import { Navigation } from '@/components/Navigation'
 import './globals.css'
-import { Inter } from 'next/font/google'
-import { Navigation } from './components/Navigation'
+import { Space_Grotesk } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin']
+})
 
 export const metadata = {
   title: 'Infojobs - Mejorador de Descripciones',
+  icons: {
+    icon: '/favicon.ico'
+  },
   description:
-    'Una pequeña herramienta que te ayuda a mejorar las descripciones de las ofertas en infojobs'
+    'Una pequeña herramienta que te ayuda a mejorarp las descripciones de las ofertas en infojobs'
 }
 
 export default function RootLayout ({
@@ -17,7 +23,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={spaceGrotesk.className}>
         <Navigation />
         {children}
       </body>

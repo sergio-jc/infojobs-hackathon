@@ -2,7 +2,7 @@
 
 import { Card, Flex, Title, Badge, Table, TableHead, TableRow, TableHeaderCell, TableBody, TableCell, Button, Text } from '@tremor/react'
 
-import { Offer } from '../types'
+import { Offer } from '../app/types'
 import { Fragment, useState } from 'react'
 import { Score } from './Score'
 
