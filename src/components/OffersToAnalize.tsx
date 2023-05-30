@@ -8,7 +8,11 @@ import { Button, Callout } from '@tremor/react'
 
 export default function OffersToAnalize () {
   const { offers, removeOfferToAnalize } = useAnalizeOffers()
-  const [analizeResponse, setAnalizeResponse] = useState(null)
+  const [analizeResponse, setAnalizeResponse] = useState<{
+    id: string
+    description: string
+    score: number | string
+  } | null>(null)
   const [loading, setLoading] = useState(false)
   const [parent] = useAutoAnimate(/* optional config */)
   const handleClick = async (offers: Offers) => {
