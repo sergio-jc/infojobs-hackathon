@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Page() {
+export default function Page () {
   return (
     <section className='w-full rounded-md flex flex-col bg-white sticky top-5'>
       <section className='bg-white'>

@@ -1,12 +1,11 @@
-import { Offer } from '@/app/types'
 import { NextResponse } from 'next/server'
 import {
   Configuration,
   ChatCompletionRequestMessageRoleEnum,
   OpenAIApi
 } from 'openai'
+import { getOffersDescriptions } from './helper'
 
-const infoJobsToken = process.env.INFOJOBS_TOKEN ?? ''
 const openaiToken = process.env.OPENAI_TOKEN ?? ''
 
 const configuration = new Configuration({ apiKey: openaiToken })
@@ -29,29 +28,6 @@ const INITIAL_MESSAGES = [
     }`
   }
 ]
-
-export async function getOfferDescriptionById (id: string) {
-  const res = await fetch(`https://api.infojobs.net/api/7/offer/${id}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Basic ${infoJobsToken}`
-    }
-  })
-
-  const { description } = await res.json()
-
-  return { description, id }
-}
-
-export async function getOffersDescriptions (offers: Offer[]) {
-  const offersDescription = offers.map(
-    async (offer) => await getOfferDescriptionById(offer.id)
-  )
-  const resolveOffers = (await Promise.allSettled(offersDescription))
-    .filter((res) => res.status !== 'rejected')
-    .map((resolved: any) => resolved.value)
-  return resolveOffers
-}
 
 export async function POST (request: Request) {
   const data = await request?.json()

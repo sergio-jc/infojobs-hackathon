@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 'use client'
 import React, { useState } from 'react'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
@@ -71,7 +72,7 @@ export default function OffersToAnalize () {
             icon={TrendingUpIcon}
             color='emerald'
           >
-            {analizeResponse.description}
+            {analizeResponse?.description ?? ''}
           </Callout>
         )}
       </div>
